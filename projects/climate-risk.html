@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physical Climate Risk Framework — Zhilin (Cassiel) Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="page-wrapper">
+    <div class="project-detail">
+
+      <article class="project-detail__main">
+
+        <p class="project-breadcrumb">
+          <a href="../projects.html">Projects</a>
+          <span>/</span>
+          Physical Climate Risk Framework
+        </p>
+
+        <p class="label project-detail__category">Climate Risk &amp; ESG</p>
+        <h1 class="project-detail__title">Physical Climate Risk<br>Framework — Global<br>Manufacturer</h1>
+
+        <p class="project-detail__lead">
+          TCFD-aligned assessment of physical climate risk across 200+ manufacturing
+          and logistics facilities worldwide, mapping chronic and acute hazards
+          under RCP 4.5 and 8.5 scenarios to prioritize adaptation investment
+          and disclosure.
+        </p>
+
+        <div class="project-detail__body">
+
+          <h2>Context</h2>
+          <p>
+            As physical climate risks move from theoretical to financially material,
+            large manufacturers face regulatory and investor pressure to quantify
+            exposure across their asset base. This project was initiated in response
+            to TCFD disclosure obligations and the need to integrate climate risk
+            into long-term capital planning.
+          </p>
+          <p>
+            The scope covered 200+ owned and leased facilities across six continents,
+            ranging from large assembly plants to regional distribution centers.
+          </p>
+
+          <h2>Hazard Screening</h2>
+          <p>
+            Seven physical hazards were screened for each facility under both a
+            moderate (RCP 4.5) and high-emission (RCP 8.5) scenario at two time
+            horizons — 2030 and 2050:
+          </p>
+          <ul>
+            <li>Chronic heat (increase in days above 35°C wet-bulb)</li>
+            <li>Precipitation change and pluvial flooding</li>
+            <li>Riverine and coastal flood inundation depth/frequency</li>
+            <li>Water stress and scarcity (Aqueduct WRI)</li>
+            <li>Wildfire risk index</li>
+            <li>Tropical cyclone wind and surge exposure</li>
+            <li>Sea-level rise (facility-level tidal gauge extrapolation)</li>
+          </ul>
+
+          <h2>Methodology</h2>
+          <p>
+            Facility coordinates were geocoded and matched to a combination of
+            proprietary climate datasets (Four Twenty Seven / Moody's ESG) and
+            open-source products (CHELSA climate projections, FATHOM flood maps,
+            WRI Aqueduct, Global Windfield). A Python pipeline automated ingestion,
+            spatial join, and scoring for all 200+ locations.
+          </p>
+          <p>
+            Risk scores were calculated as a function of hazard intensity, exposure
+            (asset value, headcount), and sensitivity (facility type, redundancy).
+            A heat-map matrix ranked facilities by composite risk tier (High / Medium /
+            Low) at each scenario–horizon combination.
+          </p>
+
+          <h2>Outputs &amp; Impact</h2>
+          <p>
+            The project produced a facility-level risk register integrated into the
+            company's enterprise risk management system, scenario-based financial
+            exposure estimates (revenue at risk, CapEx sensitivity) for TCFD disclosure,
+            and a prioritized adaptation roadmap identifying the 12 highest-risk
+            facilities for site-level resilience assessment.
+          </p>
+          <p>
+            Findings were presented to the CFO and Chief Sustainability Officer and
+            incorporated into the company's annual sustainability report and CDP
+            climate disclosure.
+          </p>
+
+        </div>
+      </article>
+
+      <aside class="project-detail__sidebar">
+
+        <div class="sidebar-section">
+          <h4>Year</h4>
+          <p class="sidebar-meta">2023</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Category</h4>
+          <p class="sidebar-meta">Physical Climate Risk<br>TCFD Disclosure<br>ESG Strategy</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Tools &amp; Frameworks</h4>
+          <ul>
+            <li>Python (pandas, geopandas)</li>
+            <li>TCFD Framework</li>
+            <li>RCP 4.5 / 8.5 Scenarios</li>
+            <li>Moody's ESG / Four Twenty Seven</li>
+            <li>WRI Aqueduct</li>
+            <li>FATHOM Flood Maps</li>
+            <li>CDP Disclosure</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Scope</h4>
+          <p class="sidebar-meta">200+ Facilities<br>6 Continents<br>7 Hazard Types</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Scenarios</h4>
+          <p class="sidebar-meta">RCP 4.5 &amp; RCP 8.5<br>Horizons: 2030, 2050</p>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Zhilin (Cassiel) Chen</p>
+    <a href="https://github.com/zche124" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

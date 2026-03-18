@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barrier Island Shoreline Change — Zhilin (Cassiel) Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="page-wrapper">
+    <div class="project-detail">
+
+      <article class="project-detail__main">
+
+        <p class="project-breadcrumb">
+          <a href="../projects.html">Projects</a>
+          <span>/</span>
+          Barrier Island Shoreline Change Detection
+        </p>
+
+        <p class="label project-detail__category">Remote Sensing &amp; Machine Learning</p>
+        <h1 class="project-detail__title">Barrier Island Shoreline<br>Change Detection</h1>
+
+        <p class="project-detail__lead">
+          Time-series analysis of multispectral satellite imagery to quantify
+          decadal shoreline migration rates across Georgia's barrier island chain,
+          using an automated random forest classification pipeline in R.
+        </p>
+
+        <div class="project-detail__body">
+
+          <h2>Overview</h2>
+          <p>
+            Georgia's barrier islands — a chain of 15 major islands between the
+            Altamaha Sound and the Savannah River — are among the most dynamic
+            coastal landforms on the U.S. East Coast. Understanding how their
+            shorelines are migrating is essential for habitat management, sea
+            turtle conservation, and coastal resilience planning.
+          </p>
+          <p>
+            This project quantified shoreline change rates for seven islands
+            using Landsat 5/7/8/9 and Sentinel-2 imagery spanning 1985–2023,
+            and contributed to a peer-reviewed publication on coastal change
+            detection methodologies.
+          </p>
+
+          <h2>Classification Pipeline</h2>
+          <p>
+            A random forest classifier was trained in R to distinguish water,
+            wet sand, dry sand, and vegetated dune from multispectral imagery.
+            Training data were manually digitized for four Landsat scenes spanning
+            different seasons and tidal states. The classifier was applied to
+            all available cloud-free imagery in the archive (&gt; 400 scenes),
+            with tidal correction applied post-classification using NOAA gauge data.
+          </p>
+          <p>
+            Shoreline positions were extracted as the wet/dry sand boundary, then
+            projected onto shore-normal transects at 25-meter intervals using the
+            Digital Shoreline Analysis System (DSAS) toolbox in ArcGIS.
+          </p>
+
+          <h2>Results</h2>
+          <ul>
+            <li>Detected net accretion on the northern ends of three islands and net erosion on two southern termini — consistent with dominant northward littoral drift.</li>
+            <li>Average long-term change rate: +0.3 m/yr (accretion) on north-facing headlands, −0.6 m/yr (erosion) on south-facing spits.</li>
+            <li>Post-storm (Hurricane Matthew 2016, Hurricane Irma 2017) shoreline pulses were quantifiable within 2–3 Landsat overpasses, demonstrating sub-seasonal detection capability.</li>
+            <li>Random forest classification achieved overall accuracy of 91% on held-out validation scenes (F1: water 0.97, dry sand 0.88, vegetation 0.86).</li>
+          </ul>
+
+          <h2>Publication</h2>
+          <p>
+            Findings contributed to a peer-reviewed publication examining the
+            accuracy and scalability of automated shoreline extraction from
+            multispectral satellite imagery, with particular attention to
+            micro-tidal environments typical of the Georgia Bight.
+          </p>
+
+        </div>
+      </article>
+
+      <aside class="project-detail__sidebar">
+
+        <div class="sidebar-section">
+          <h4>Year</h4>
+          <p class="sidebar-meta">2022 – 2023</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Category</h4>
+          <p class="sidebar-meta">Remote Sensing<br>Machine Learning<br>Coastal Geomorphology</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Tools</h4>
+          <ul>
+            <li>R (tidyverse, terra, sf)</li>
+            <li>Landsat 5/7/8/9</li>
+            <li>Sentinel-2</li>
+            <li>ArcGIS Pro (DSAS)</li>
+            <li>Google Earth Engine</li>
+            <li>Random Forest</li>
+            <li>NOAA Tidal Data</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Time Period</h4>
+          <p class="sidebar-meta">1985 – 2023<br>(400+ scenes)</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Classification Accuracy</h4>
+          <p class="sidebar-meta">91% Overall<br>F1 Water: 0.97</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Output</h4>
+          <p class="sidebar-meta">Peer-Reviewed Publication<br>Shoreline Change Database</p>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Zhilin (Cassiel) Chen</p>
+    <a href="https://github.com/zche124" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

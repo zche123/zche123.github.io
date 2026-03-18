@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sea Turtle Nesting Habitat — Zhilin (Cassiel) Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="page-wrapper">
+    <div class="project-detail">
+
+      <!-- Main content -->
+      <article class="project-detail__main">
+
+        <p class="project-breadcrumb">
+          <a href="../projects.html">Projects</a>
+          <span>/</span>
+          Sea Turtle Nesting Habitat
+        </p>
+
+        <p class="label project-detail__category">Geospatial Modeling</p>
+        <h1 class="project-detail__title">Sea Turtle Nesting<br>Habitat — Jekyll Island</h1>
+
+        <p class="project-detail__lead">
+          A multi-variable habitat suitability model for loggerhead sea turtle
+          (<em>Caretta caretta</em>) nesting on Jekyll Island, Georgia, integrating
+          LiDAR-derived beach morphology, satellite vegetation indices, and
+          13 years of tide-corrected shoreline position data.
+        </p>
+
+        <div class="project-detail__body">
+
+          <h2>Background</h2>
+          <p>
+            Jekyll Island hosts one of Georgia's most significant loggerhead nesting
+            beaches. Female loggerheads exhibit strong site fidelity, returning to
+            the same stretch of beach where they were born decades earlier. As
+            shoreline dynamics shift under increasing storm frequency and sea-level
+            rise, understanding which beach segments offer stable, high-quality
+            nesting habitat becomes critical for conservation planning.
+          </p>
+          <p>
+            Despite 30+ years of nesting surveys, no spatially explicit suitability
+            model had been constructed for Jekyll. This project aimed to fill that
+            gap by fusing field-survey records with publicly available geospatial
+            datasets.
+          </p>
+
+          <h2>Data Sources</h2>
+          <ul>
+            <li>NOAA Topobathymetric LiDAR (2016, 2020) — dune crest elevation, beach width, slope</li>
+            <li>Sentinel-2 multispectral imagery (2018–2023) — NDVI for dune vegetation density</li>
+            <li>USGS CoastSat shoreline positions (2010–2023) — 13 years of seasonal shoreline</li>
+            <li>DNR Jekyll Island nesting survey records (2010–2023) — 1,200+ nest locations</li>
+            <li>NOAA tidal datum corrections — MHHW-referenced shoreline normalization</li>
+          </ul>
+
+          <h2>Methods</h2>
+          <p>
+            Beach morphology was derived from LiDAR point clouds processed in ArcGIS Pro.
+            Dune crest elevation, foredune face slope, and dry beach width were extracted
+            along 20-meter cross-shore transects at 10-meter alongshore intervals.
+          </p>
+          <p>
+            Shoreline positions were extracted from Sentinel-2 imagery using the NDWI
+            water index, then corrected to mean higher high water datum using NOAA
+            tidal predictions for the Brunswick gauge. Year-over-year shoreline change
+            rates were computed for each transect using end-point rate (EPR) and
+            linear regression rate (LRR) methods.
+          </p>
+          <p>
+            NDVI was computed from Sentinel-2 bands 8 and 4, aggregated seasonally
+            (March–May, pre-nesting) to capture vegetation density at the time of
+            nest-site selection. Values were averaged across 20×20 m grid cells
+            aligned to the transect network.
+          </p>
+          <p>
+            A logistic regression model was trained on nest presence/pseudo-absence
+            data (n = 1,200 nests; 1,200 matched random absences in non-nested zones)
+            with predictors: dune crest elevation, beach width, foredune slope,
+            NDVI, and 5-year shoreline change rate. Model performance was evaluated
+            with 10-fold cross-validation (AUC = 0.81).
+          </p>
+
+          <h2>Key Findings</h2>
+          <ul>
+            <li>Dune crest elevation (&gt; 1.8 m MHHW) and beach width (&gt; 30 m) were the strongest positive predictors of nest presence.</li>
+            <li>High NDVI (dense dune vegetation) negatively associated with nest success — turtles avoided heavily vegetated sections.</li>
+            <li>The northern 2.4 km of the island showed net accretion (+0.4 m/yr) and consistently high suitability scores; the southern terminus showed net erosion and declining scores across the study period.</li>
+            <li>Suitability mapping identified a 700-meter priority conservation corridor where planned dune restoration would have the highest marginal benefit per dollar invested.</li>
+          </ul>
+
+          <h2>Outputs</h2>
+          <p>
+            Deliverables included a continuous suitability raster (10 m resolution),
+            a transect-level summary geodatabase, and a technical report submitted
+            to the Georgia Department of Natural Resources Coastal Resources Division.
+            Results are being incorporated into the Jekyll Island Conservation Authority's
+            5-year beach management plan.
+          </p>
+
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="project-detail__sidebar">
+
+        <div class="sidebar-section">
+          <h4>Year</h4>
+          <p class="sidebar-meta">2024</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Category</h4>
+          <p class="sidebar-meta">Geospatial Modeling<br>Conservation Biology</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Tools &amp; Methods</h4>
+          <ul>
+            <li>ArcGIS Pro</li>
+            <li>R (tidyverse, sf, terra)</li>
+            <li>Google Earth Engine</li>
+            <li>Sentinel-2 / LiDAR</li>
+            <li>CoastSat</li>
+            <li>Logistic Regression</li>
+            <li>NDVI / NDWI</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Data Period</h4>
+          <p class="sidebar-meta">2010 – 2023<br>(13 years)</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Model Performance</h4>
+          <p class="sidebar-meta">AUC 0.81<br>10-fold CV</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Partners</h4>
+          <p class="sidebar-meta">GA Dept. of Natural Resources<br>Jekyll Island Authority</p>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Zhilin (Cassiel) Chen</p>
+    <a href="https://github.com/zche124" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

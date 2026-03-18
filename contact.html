@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Zhilin (Cassiel) Chen</title>
+  <meta name="description" content="Get in touch with Zhilin (Cassiel) Chen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
+    <ul class="site-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="page-wrapper">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-left">
+        <p class="label">Contact</p>
+        <h1 class="contact-heading">Let's<br>Connect</h1>
+        <p class="contact-intro">
+          I'm open to research collaborations, sustainability consulting
+          engagements, and full-time roles in environmental data science or
+          ESG. Feel free to reach out through any of the channels below.
+        </p>
+
+        <ul class="contact-links">
+          <li>
+            <p class="contact-link-label">Email</p>
+            <a class="contact-link-value" href="mailto:ccassielchen12@gmail.com">
+              ccassielchen12@gmail.com
+            </a>
+          </li>
+          <li>
+            <p class="contact-link-label">GitHub</p>
+            <a class="contact-link-value" href="https://github.com/zche124" target="_blank" rel="noopener">
+              github.com/zche124
+            </a>
+          </li>
+          <li>
+            <p class="contact-link-label">Location</p>
+            <span class="contact-link-value">Atlanta, Georgia, USA</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-right">
+        <span class="contact-form-label">Send a Message</span>
+
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+          <p class="form-feedback" id="form-feedback"></p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Zhilin (Cassiel) Chen</p>
+    <a href="https://github.com/zche124" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
