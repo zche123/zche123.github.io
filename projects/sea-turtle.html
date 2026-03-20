@@ -32,89 +32,317 @@
         <p class="project-breadcrumb">
           <a href="../projects.html">Projects</a>
           <span>/</span>
-          Sea Turtle Nesting Habitat
+          Predicting Sea Turtle Nesting Habitats
         </p>
 
-        <p class="label project-detail__category">Geospatial Modeling</p>
-        <h1 class="project-detail__title">Sea Turtle Nesting<br>Habitat — Jekyll Island</h1>
+        <section class="project-hero">
+          <p class="label project-detail__category">Geospatial Research</p>
+          <h1 class="project-detail__title">Predicting Sea Turtle Nesting Habitats on Jekyll Island</h1>
 
-        <p class="project-detail__lead">
-          A multi-variable habitat suitability model for loggerhead sea turtle
-          (<em>Caretta caretta</em>) nesting on Jekyll Island, Georgia, integrating
-          LiDAR-derived beach morphology, satellite vegetation indices, and
-          13 years of tide-corrected shoreline position data.
-        </p>
+          <p class="project-detail__lead">
+            A geospatial habitat suitability model combining MCDA, remote sensing,
+            LiDAR-derived terrain interpretation, and shoreline change analysis to
+            identify potential loggerhead nesting habitat along the Georgia coast.
+          </p>
+
+          <div class="project-hero__meta">
+            <div class="project-hero__meta-item">
+              <span class="label">Timeline</span>
+              <p>2024–2025</p>
+            </div>
+            <div class="project-hero__meta-item">
+              <span class="label">Type</span>
+              <p>Undergraduate research / technical report</p>
+            </div>
+            <div class="project-hero__meta-item">
+              <span class="label">Role</span>
+              <p>Researcher, GIS analyst, model builder</p>
+            </div>
+            <div class="project-hero__meta-item">
+              <span class="label">Tools</span>
+              <p>ArcGIS Pro, Global Mapper, DSAS, CoastSeg, remote sensing, GeoJSON workflows</p>
+            </div>
+          </div>
+
+          <div class="project-link-row">
+            <a class="project-link-button" href="../assets/sea-turtle/technical-report.pdf" target="_blank" rel="noopener">View Report</a>
+            <a class="project-link-button" href="#visuals">Explore Maps</a>
+            <a class="project-link-button" href="#approach">See Workflow</a>
+            <a class="project-link-button" href="#findings">Read Findings</a>
+          </div>
+        </section>
 
         <div class="project-detail__body">
 
-          <h2>Background</h2>
-          <p>
-            Jekyll Island hosts one of Georgia's most significant loggerhead nesting
-            beaches. Female loggerheads exhibit strong site fidelity, returning to
-            the same stretch of beach where they were born decades earlier. As
-            shoreline dynamics shift under increasing storm frequency and sea-level
-            rise, understanding which beach segments offer stable, high-quality
-            nesting habitat becomes critical for conservation planning.
-          </p>
-          <p>
-            Despite 30+ years of nesting surveys, no spatially explicit suitability
-            model had been constructed for Jekyll. This project aimed to fill that
-            gap by fusing field-survey records with publicly available geospatial
-            datasets.
-          </p>
+          <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>
+              This project evaluates where loggerhead sea turtles may still find
+              suitable nesting habitat on Jekyll Island today. I built a spatial
+              habitat suitability model that combines vegetation, dune presence,
+              shore slope, and anthropogenic lighting into a multi-criteria
+              decision framework, then used shoreline change as a separate
+              interpretation layer to evaluate longer-term viability.
+            </p>
+            <p>
+              Rather than treating the coastline as uniformly suitable or
+              unsuitable, I wanted to translate ecological nesting preferences
+              into a geospatial workflow that could show where habitat appears
+              promising, where it is vulnerable, and where modeled suitability
+              begins to break down against field reality.
+            </p>
+          </section>
 
-          <h2>Data Sources</h2>
-          <ul>
-            <li>NOAA Topobathymetric LiDAR (2016, 2020) — dune crest elevation, beach width, slope</li>
-            <li>Sentinel-2 multispectral imagery (2018–2023) — NDVI for dune vegetation density</li>
-            <li>USGS CoastSat shoreline positions (2010–2023) — 13 years of seasonal shoreline</li>
-            <li>DNR Jekyll Island nesting survey records (2010–2023) — 1,200+ nest locations</li>
-            <li>NOAA tidal datum corrections — MHHW-referenced shoreline normalization</li>
-          </ul>
+          <section class="project-section">
+            <h2>Why This Matters</h2>
+            <p>
+              Jekyll Island is an important loggerhead nesting site, but it is
+              also a dynamic and heavily managed coastline. Development,
+              shoreline modification, erosion, lighting, and geomorphic change
+              all shape the conditions turtles encounter when they come ashore.
+            </p>
+            <p>
+              That made this project less about producing a single habitat map
+              and more about asking a practical conservation question: where does
+              suitable nesting habitat still exist, and how much confidence
+              should we place in those areas over time?
+            </p>
+          </section>
 
-          <h2>Methods</h2>
-          <p>
-            Beach morphology was derived from LiDAR point clouds processed in ArcGIS Pro.
-            Dune crest elevation, foredune face slope, and dry beach width were extracted
-            along 20-meter cross-shore transects at 10-meter alongshore intervals.
-          </p>
-          <p>
-            Shoreline positions were extracted from Sentinel-2 imagery using the NDWI
-            water index, then corrected to mean higher high water datum using NOAA
-            tidal predictions for the Brunswick gauge. Year-over-year shoreline change
-            rates were computed for each transect using end-point rate (EPR) and
-            linear regression rate (LRR) methods.
-          </p>
-          <p>
-            NDVI was computed from Sentinel-2 bands 8 and 4, aggregated seasonally
-            (March–May, pre-nesting) to capture vegetation density at the time of
-            nest-site selection. Values were averaged across 20×20 m grid cells
-            aligned to the transect network.
-          </p>
-          <p>
-            A logistic regression model was trained on nest presence/pseudo-absence
-            data (n = 1,200 nests; 1,200 matched random absences in non-nested zones)
-            with predictors: dune crest elevation, beach width, foredune slope,
-            NDVI, and 5-year shoreline change rate. Model performance was evaluated
-            with 10-fold cross-validation (AUC = 0.81).
-          </p>
+          <section class="project-section" id="approach">
+            <h2>Approach</h2>
+            <div class="project-card-grid">
+              <div class="project-card">
+                <h3>MCDA workflow</h3>
+                <p>
+                  I built a multi-criteria decision analysis workflow that turns
+                  ecological preferences into a spatial suitability index.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3>Four core variables</h3>
+                <p>
+                  NDVI / vegetation, shore slope, dune presence, and distance
+                  from anthropogenic lighting were standardized and combined in
+                  the core model.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3>Separate shoreline check</h3>
+                <p>
+                  Shoreline change was used as a validation and interpretation
+                  layer rather than a direct MCDA input because it did not fit
+                  cleanly into the same binary structure.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3>Shoreline-focused refinement</h3>
+                <p>
+                  Final outputs were refined to shoreline-adjacent areas so the
+                  interpretation stayed focused on places that were realistically
+                  relevant for nesting.
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <h2>Key Findings</h2>
-          <ul>
-            <li>Dune crest elevation (&gt; 1.8 m MHHW) and beach width (&gt; 30 m) were the strongest positive predictors of nest presence.</li>
-            <li>High NDVI (dense dune vegetation) negatively associated with nest success — turtles avoided heavily vegetated sections.</li>
-            <li>The northern 2.4 km of the island showed net accretion (+0.4 m/yr) and consistently high suitability scores; the southern terminus showed net erosion and declining scores across the study period.</li>
-            <li>Suitability mapping identified a 700-meter priority conservation corridor where planned dune restoration would have the highest marginal benefit per dollar invested.</li>
-          </ul>
+          <section class="project-section">
+            <h2>Data and Methods</h2>
+            <div class="project-method-list">
+              <div class="project-method-item">
+                <h3>Vegetation</h3>
+                <p>
+                  NDVI was derived from 2024 NAIP imagery to estimate vegetation
+                  cover near the nesting zone.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Shore slope</h3>
+                <p>
+                  USGS beach foreshore slope data were interpolated with IDW to
+                  create a continuous slope surface across the island shoreline.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Dune presence</h3>
+                <p>
+                  I identified dune presence using 2018 NOAA LiDAR and
+                  cross-shore topographic profiles in Global Mapper, then
+                  checked the resulting features against recent imagery.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Lighting proxy</h3>
+                <p>
+                  Anthropogenic light exposure was estimated using building
+                  footprints and buffer analysis as a proxy for likely nighttime
+                  lighting pressure.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Shoreline change</h3>
+                <p>
+                  Shorelines were extracted from 2011–2024 imagery using
+                  CoastSeg, manually tide-filtered to reduce interpretation
+                  bias, reprojected into UTM Zone 17, and analyzed in DSAS.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Suitability index</h3>
+                <p>
+                  A simple additive weighting model combined the four
+                  standardized habitat variables into an index from 0 to 4. In
+                  practice, the highest score that appeared in the study area
+                  was 3.
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <h2>Outputs</h2>
-          <p>
-            Deliverables included a continuous suitability raster (10 m resolution),
-            a transect-level summary geodatabase, and a technical report submitted
-            to the Georgia Department of Natural Resources Coastal Resources Division.
-            Results are being incorporated into the Jekyll Island Conservation Authority's
-            5-year beach management plan.
-          </p>
+          <section class="project-section" id="visuals">
+            <h2>Key Visuals</h2>
+            <div class="project-visual-grid">
+              <figure class="project-visual project-visual--wide">
+                <img src="../assets/sea-turtle/refined-suitability-zones.jpg" alt="Refined shoreline-adjacent habitat suitability zones on Jekyll Island." />
+                <figcaption>
+                  Refined shoreline-adjacent output showing the three primary
+                  high-suitability zones that emerged from the final model.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual">
+                <img src="../assets/sea-turtle/shoreline-change-lrr.jpg" alt="Linear regression shoreline change rate map for Jekyll Island." />
+                <figcaption>
+                  Long-term shoreline change rates used to interpret whether
+                  apparently suitable habitat is likely to remain viable.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual">
+                <img src="../assets/sea-turtle/ndvi-map.jpg" alt="NDVI-derived vegetation layer used in the habitat suitability model." />
+                <figcaption>
+                  NDVI layer derived from 2024 NAIP imagery to represent
+                  vegetation cover near the nesting zone.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual">
+                <img src="../assets/sea-turtle/dune-profile-comparison.png" alt="Cross-shore dune profile comparison used to identify dune presence." />
+                <figcaption>
+                  Cross-shore topographic profiles used to distinguish dune
+                  presence from flatter shoreline conditions.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual">
+                <img src="../assets/sea-turtle/dune-presence-map.jpg" alt="Mapped dune presence along the Jekyll Island shoreline." />
+                <figcaption>
+                  Dune presence layer built from LiDAR interpretation and
+                  shoreline transects.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual">
+                <img src="../assets/sea-turtle/jetty-field-photo.jpg" alt="Jetty stabilization structure along the mid-north Jekyll Island shoreline." />
+                <figcaption>
+                  Field evidence from the mid-north shoreline showing jetties
+                  and boulder stabilization in a zone that initially scored well
+                  in the model.
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="project-section" id="findings">
+            <h2>Findings</h2>
+            <div class="project-findings">
+              <div class="project-finding">
+                <h3>Three primary high-suitability zones</h3>
+                <p>
+                  The final refined output highlighted three shoreline zones
+                  with relatively high suitability based on the modeled
+                  criteria.
+                </p>
+              </div>
+              <div class="project-finding">
+                <h3>Short-term suitability, mixed long-term confidence</h3>
+                <p>
+                  Some of those high-scoring areas overlapped with intense
+                  shoreline retreat, which reduced confidence in their long-term
+                  viability.
+                </p>
+              </div>
+              <div class="project-finding">
+                <h3>Field validation changed the interpretation</h3>
+                <p>
+                  One prominent mid-north zone looked strong in the model, but
+                  field evidence showed shoreline stabilization structures that
+                  made nesting effectively unrealistic.
+                </p>
+              </div>
+            </div>
+
+            <p class="project-section__closing">
+              That contrast was one of the most useful outcomes of the project:
+              spatial models can generate plausible habitat signals, but those
+              signals still need to be checked against geomorphic reality.
+            </p>
+          </section>
+
+          <section class="project-section">
+            <h2>Limitations and Reflections</h2>
+            <p>
+              One of the clearest limitations was the slope variable. In one
+              part of the island, jetty-driven steepness was rewarded as
+              suitable terrain even though the shoreline was engineered and not
+              meaningfully nestable. The model was reading topography, but not
+              the full coastal context.
+            </p>
+            <p>
+              The workflow also simplified several variables into binary
+              classes. That made the model easier to standardize and interpret,
+              but it reduced nuance. Shoreline change had to remain outside the
+              main MCDA equation because it could not be fully standardized into
+              the same structure. Lighting exposure relied on assumptions rather
+              than direct field-validated measurements, and the LiDAR surface
+              model introduced noise because it did not cleanly separate bare
+              earth from vegetation.
+            </p>
+            <p>
+              What I took from this project is that geospatial modeling becomes
+              much stronger when it is paired with context, skepticism, and
+              ground-truthing. Future iterations could better exclude engineered
+              shoreline structures, strengthen lighting validation, refine how
+              variables are standardized, and test machine learning approaches
+              such as Random Forest if nesting data become available.
+            </p>
+          </section>
+
+          <section class="project-section">
+            <h2>Tools</h2>
+            <div class="tag-list project-tag-list">
+              <span class="tag">ArcGIS Pro</span>
+              <span class="tag">Global Mapper</span>
+              <span class="tag">CoastSeg</span>
+              <span class="tag">DSAS</span>
+              <span class="tag">NAIP Imagery</span>
+              <span class="tag">NOAA LiDAR</span>
+              <span class="tag">GeoJSON</span>
+              <span class="tag">Raster Analysis</span>
+              <span class="tag">IDW Interpolation</span>
+              <span class="tag">Buffer Analysis</span>
+              <span class="tag">MCDA</span>
+            </div>
+          </section>
+
+          <section class="project-section">
+            <h2>Links and Assets</h2>
+            <div class="project-link-row">
+              <a class="project-link-button" href="../assets/sea-turtle/technical-report.pdf" target="_blank" rel="noopener">Full Technical Report</a>
+              <a class="project-link-button" href="#visuals">Map Gallery</a>
+              <a class="project-link-button" href="#approach">Workflow Notes</a>
+            </div>
+          </section>
 
         </div>
       </article>
@@ -123,41 +351,49 @@
       <aside class="project-detail__sidebar">
 
         <div class="sidebar-section">
-          <h4>Year</h4>
-          <p class="sidebar-meta">2024</p>
+          <h4>Project Snapshot</h4>
+          <p class="sidebar-meta">
+            Current nesting suitability model for loggerhead sea turtles on
+            Jekyll Island using four MCDA inputs and shoreline change as a
+            separate interpretation layer.
+          </p>
         </div>
 
         <div class="sidebar-section">
-          <h4>Category</h4>
-          <p class="sidebar-meta">Geospatial Modeling<br>Conservation Biology</p>
-        </div>
-
-        <div class="sidebar-section">
-          <h4>Tools &amp; Methods</h4>
+          <h4>Core Inputs</h4>
           <ul>
-            <li>ArcGIS Pro</li>
-            <li>R (tidyverse, sf, terra)</li>
-            <li>Google Earth Engine</li>
-            <li>Sentinel-2 / LiDAR</li>
-            <li>CoastSat</li>
-            <li>Logistic Regression</li>
-            <li>NDVI / NDWI</li>
+            <li>NDVI / vegetation</li>
+            <li>Shore slope</li>
+            <li>Dune presence</li>
+            <li>Distance to lighting</li>
           </ul>
         </div>
 
         <div class="sidebar-section">
-          <h4>Data Period</h4>
-          <p class="sidebar-meta">2010 – 2023<br>(13 years)</p>
+          <h4>Interpretation Layer</h4>
+          <p class="sidebar-meta">2011–2024 shoreline change extracted in CoastSeg and analyzed in DSAS</p>
         </div>
 
         <div class="sidebar-section">
-          <h4>Model Performance</h4>
-          <p class="sidebar-meta">AUC 0.81<br>10-fold CV</p>
+          <h4>Model Output</h4>
+          <p class="sidebar-meta">Simple additive weighting index from 0 to 4, with a highest observed score of 3</p>
         </div>
 
         <div class="sidebar-section">
-          <h4>Partners</h4>
-          <p class="sidebar-meta">GA Dept. of Natural Resources<br>Jekyll Island Authority</p>
+          <h4>What Stood Out</h4>
+          <p class="sidebar-meta">
+            One high-scoring mid-north zone was contradicted by field evidence
+            showing jetties and boulder stabilization.
+          </p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Assets</h4>
+          <ul>
+            <li><a href="../assets/sea-turtle/technical-report.pdf" target="_blank" rel="noopener">Technical report</a></li>
+            <li><a href="#visuals">Extracted maps</a></li>
+            <li><a href="../assets/sea-turtle/jetty-field-photo.jpg" target="_blank" rel="noopener">Field photo</a></li>
+          </ul>
         </div>
 
       </aside>
