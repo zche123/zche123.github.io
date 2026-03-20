@@ -11,15 +11,15 @@
 }
 
 :root {
-  --bg:          #f0ede8;
-  --bg-card:     #e8e4de;
-  --bg-tag:      #f0ede8;
+  --bg:          #edf3ee;
+  --bg-card:     #e2ebe4;
+  --bg-tag:      #edf3ee;
   --text:        #1a1a1a;
-  --text-light:  #888880;
-  --text-mid:    #555550;
-  --accent:      #8a8a82;
-  --border:      #c8c4bc;
-  --border-dark: #a8a49c;
+  --text-light:  #6f7f72;
+  --text-mid:    #3f4d42;
+  --accent:      #2d5a3d;
+  --border:      #c3d2c6;
+  --border-dark: #93a896;
 
   --serif:  'EB Garamond', Georgia, 'Times New Roman', serif;
   --mono:   'Courier New', Courier, monospace;
