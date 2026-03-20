@@ -9,7 +9,7 @@ Personal portfolio website for Zhilin (Cassiel) Chen, Environmental Data Scienti
 ## File Structure
 
 ```
-zche124.github.io/
+zche123.github.io/
 ├── index.html              # Home page
 ├── projects.html           # Projects listing
 ├── about.html              # About / CV page
@@ -37,7 +37,7 @@ This is a plain static site — no build tools required.
 open index.html
 
 # Or serve with Python's built-in server (recommended — avoids some path quirks)
-cd zche124.github.io
+cd zche123.github.io
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -51,12 +51,12 @@ The site is deployed via GitHub Pages from the `main` branch root.
 ### First-time setup
 
 ```bash
-cd zche124.github.io
+cd zche123.github.io
 git init
 git add .
 git commit -m "Initial portfolio"
 git branch -M main
-git remote add origin https://github.com/zche124/zche124.github.io.git
+git remote add origin https://github.com/zche123/zche123.github.io.git
 git push -u origin main
 ```
 
