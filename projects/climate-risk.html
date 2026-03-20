@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Physical Climate Risk Framework — Zhilin (Cassiel) Chen</title>
+  <title>Cost-Benefit Analysis of Urban Green Infrastructure — Zhilin (Cassiel) Chen</title>
+  <meta name="description" content="Research case study on standardized cost benchmarking for urban green infrastructure categories." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
@@ -11,7 +12,6 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="site-nav">
     <a href="../index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
     <ul class="site-nav__links">
@@ -22,7 +22,6 @@
     </ul>
   </nav>
 
-  <!-- Main -->
   <main class="page-wrapper">
     <div class="project-detail">
 
@@ -31,78 +30,296 @@
         <p class="project-breadcrumb">
           <a href="../projects.html">Projects</a>
           <span>/</span>
-          Physical Climate Risk Framework
+          Cost-Benefit Analysis of Urban Green Infrastructure
         </p>
 
-        <p class="label project-detail__category">Climate Risk &amp; ESG</p>
-        <h1 class="project-detail__title">Physical Climate Risk<br>Framework — Global<br>Manufacturer</h1>
+        <section class="project-hero">
+          <p class="label project-detail__category">Urban Sustainability Research</p>
+          <h1 class="project-detail__title">Cost-Benefit Analysis of Urban Green Infrastructure</h1>
 
-        <p class="project-detail__lead">
-          TCFD-aligned assessment of physical climate risk across 200+ manufacturing
-          and logistics facilities worldwide, mapping chronic and acute hazards
-          under RCP 4.5 and 8.5 scenarios to prioritize adaptation investment
-          and disclosure.
-        </p>
+          <p class="project-detail__lead">
+            A comparative research report synthesizing public cost data, contractor
+            estimates, and planning literature across seven urban green
+            infrastructure categories to build a more usable decision-support
+            reference for urban planning.
+          </p>
+
+          <div class="project-hero__meta">
+            <div class="project-hero__meta-item">
+              <span class="label">Timeline</span>
+              <p>2024</p>
+            </div>
+            <div class="project-hero__meta-item">
+              <span class="label">Type</span>
+              <p>Research report / comparative cost analysis</p>
+            </div>
+            <div class="project-hero__meta-item">
+              <span class="label">Role</span>
+              <p>Researcher, cost analyst, report designer</p>
+            </div>
+            <div class="project-hero__meta-item">
+              <span class="label">Tools</span>
+              <p>Literature review, cost normalization, source auditing, comparative analysis, report design</p>
+            </div>
+          </div>
+
+          <div class="project-link-row">
+            <a class="project-link-button" href="../assets/urban-green/urban-green-infrastructure-report.pdf" target="_blank" rel="noopener">View Report</a>
+            <a class="project-link-button" href="#visuals">Explore Visuals</a>
+            <a class="project-link-button" href="#approach">See Workflow</a>
+            <a class="project-link-button" href="#findings">Read Findings</a>
+          </div>
+        </section>
 
         <div class="project-detail__body">
 
-          <h2>Context</h2>
-          <p>
-            As physical climate risks move from theoretical to financially material,
-            large manufacturers face regulatory and investor pressure to quantify
-            exposure across their asset base. This project was initiated in response
-            to TCFD disclosure obligations and the need to integrate climate risk
-            into long-term capital planning.
-          </p>
-          <p>
-            The scope covered 200+ owned and leased facilities across six continents,
-            ranging from large assembly plants to regional distribution centers.
-          </p>
+          <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>
+              This project asked a practical planning question: if cities want to
+              invest in urban green infrastructure, what does implementation
+              actually cost across different intervention types, and how usable is
+              the public cost information that planners rely on?
+            </p>
+            <p>
+              Working from a natural capital framing, I compiled and standardized
+              cost information for seven urban green infrastructure categories:
+              tree installation, lawn installation, bioswales, greenways/trails,
+              rain gardens, green roofs, and vertical greenery systems. The end
+              product was a comparative report designed to make fragmented cost
+              information more legible for planning and research use.
+            </p>
+          </section>
 
-          <h2>Hazard Screening</h2>
-          <p>
-            Seven physical hazards were screened for each facility under both a
-            moderate (RCP 4.5) and high-emission (RCP 8.5) scenario at two time
-            horizons — 2030 and 2050:
-          </p>
-          <ul>
-            <li>Chronic heat (increase in days above 35°C wet-bulb)</li>
-            <li>Precipitation change and pluvial flooding</li>
-            <li>Riverine and coastal flood inundation depth/frequency</li>
-            <li>Water stress and scarcity (Aqueduct WRI)</li>
-            <li>Wildfire risk index</li>
-            <li>Tropical cyclone wind and surge exposure</li>
-            <li>Sea-level rise (facility-level tidal gauge extrapolation)</li>
-          </ul>
+          <section class="project-section">
+            <h2>Why This Matters</h2>
+            <p>
+              Urban green infrastructure is often discussed in terms of benefits:
+              cooling, stormwater management, carbon capture, habitat, and public
+              health. The harder question is implementation. Cost data are often
+              scattered across contractor websites, local reports, academic
+              studies, and one-off planning documents, which makes comparison
+              difficult and decision-making uneven.
+            </p>
+            <p>
+              I wanted to build a clearer baseline. Not a universal price list,
+              but a structured reference showing how costs vary by category, what
+              assumptions sit behind those numbers, and where the evidence is
+              strongest or weakest.
+            </p>
+          </section>
 
-          <h2>Methodology</h2>
-          <p>
-            Facility coordinates were geocoded and matched to a combination of
-            proprietary climate datasets (Four Twenty Seven / Moody's ESG) and
-            open-source products (CHELSA climate projections, FATHOM flood maps,
-            WRI Aqueduct, Global Windfield). A Python pipeline automated ingestion,
-            spatial join, and scoring for all 200+ locations.
-          </p>
-          <p>
-            Risk scores were calculated as a function of hazard intensity, exposure
-            (asset value, headcount), and sensitivity (facility type, redundancy).
-            A heat-map matrix ranked facilities by composite risk tier (High / Medium /
-            Low) at each scenario–horizon combination.
-          </p>
+          <section class="project-section" id="approach">
+            <h2>Approach</h2>
+            <div class="project-card-grid">
+              <div class="project-card">
+                <h3>Defined seven categories</h3>
+                <p>
+                  I grouped urban green infrastructure into seven broad project
+                  types so the analysis could compare like with like across the
+                  report.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3>Collected mixed-source cost data</h3>
+                <p>
+                  The dataset combined books, scientific literature, university
+                  resources, contractor websites, public estimators, and direct
+                  outreach where possible.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3>Standardized units and assumptions</h3>
+                <p>
+                  Costs gathered in different formats, currencies, and units were
+                  normalized into a common reporting structure so categories
+                  could be compared more meaningfully.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3>Audited source quality and gaps</h3>
+                <p>
+                  Beyond the cost summary itself, the report tracked which
+                  sources appeared most often and where regional or methodological
+                  blind spots remained.
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <h2>Outputs &amp; Impact</h2>
-          <p>
-            The project produced a facility-level risk register integrated into the
-            company's enterprise risk management system, scenario-based financial
-            exposure estimates (revenue at risk, CapEx sensitivity) for TCFD disclosure,
-            and a prioritized adaptation roadmap identifying the 12 highest-risk
-            facilities for site-level resilience assessment.
-          </p>
-          <p>
-            Findings were presented to the CFO and Chief Sustainability Officer and
-            incorporated into the company's annual sustainability report and CDP
-            climate disclosure.
-          </p>
+          <section class="project-section">
+            <h2>Data and Methods</h2>
+            <div class="project-method-list">
+              <div class="project-method-item">
+                <h3>Geographic coverage</h3>
+                <p>
+                  I combined national averages with state-specific information
+                  from Washington, Texas, Wisconsin, Minnesota, Illinois,
+                  Indiana, Georgia, North Carolina, New York, and Massachusetts.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Source types</h3>
+                <p>
+                  Inputs came from library books, scientific databases,
+                  university research pages, contractor websites, public price
+                  estimators, and expert outreach.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Standardized project sizes</h3>
+                <p>
+                  To make categories more comparable, I assigned reference
+                  scales such as one 10-foot tree, per-square-foot lawn
+                  installation, a 2,500-square-foot bioswale, a 3-mile
+                  greenway/trail, and standardized sizes for rain gardens, green
+                  roofs, and green walls.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Normalization decisions</h3>
+                <p>
+                  Currency conversions and unit conversions were standardized,
+                  but I intentionally did not fully inflation-adjust the dataset
+                  because location, design intent, and implementation context
+                  were still major drivers of variation.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Benefit framing</h3>
+                <p>
+                  Each category was paired with qualitative benefit and drawback
+                  notes, so the report did not reduce the decision purely to a
+                  dollar-per-unit comparison.
+                </p>
+              </div>
+              <div class="project-method-item">
+                <h3>Output structure</h3>
+                <p>
+                  The final deliverable included category-level cost summaries,
+                  source attribution, a standardized comparison table, and a
+                  section documenting remaining knowledge gaps.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="project-section" id="visuals">
+            <h2>Key Visuals</h2>
+            <div class="project-visual-grid">
+              <figure class="project-visual project-visual--wide">
+                <img src="../assets/urban-green/state-data-map.png" alt="Map showing states used for state-specific urban green infrastructure data acquisition." />
+                <figcaption>
+                  Geographic footprint of the state-specific data I used to
+                  complement national averages and broaden the cost review.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual project-visual--wide">
+                <img src="../assets/urban-green/standardized-summary.png" alt="Standardized summary table and source frequency chart for urban green infrastructure categories." />
+                <figcaption>
+                  Standardized cost summary across seven urban green
+                  infrastructure categories, paired with a source-frequency chart
+                  showing which references shaped the final estimates most often.
+                </figcaption>
+              </figure>
+
+              <figure class="project-visual project-visual--wide">
+                <img src="../assets/urban-green/bioswale-case-example.png" alt="Bioswale concept diagram and example cost breakdown." />
+                <figcaption>
+                  Example category deep dive showing how technical context,
+                  component costs, and ecological function were brought together
+                  in the report.
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="project-section" id="findings">
+            <h2>Findings</h2>
+            <div class="project-findings">
+              <div class="project-finding">
+                <h3>Cost is highly category-dependent</h3>
+                <p>
+                  The report showed that urban green infrastructure cannot be
+                  treated as a single cost class. Installation, site
+                  preparation, and maintenance profiles vary dramatically across
+                  categories.
+                </p>
+              </div>
+              <div class="project-finding">
+                <h3>Public data are fragmented and uneven</h3>
+                <p>
+                  Some categories had relatively strong public sourcing, while
+                  others relied on sparse or project-specific estimates that made
+                  standardization much harder.
+                </p>
+              </div>
+              <div class="project-finding">
+                <h3>Planning context changes the math</h3>
+                <p>
+                  The report reinforced that project location, intended use,
+                  design choices, and maintenance assumptions can all shift total
+                  cost as much as the category itself.
+                </p>
+              </div>
+            </div>
+
+            <p class="project-section__closing">
+              One of the more useful conclusions was that combining green
+              infrastructure with planned infrastructure improvements can reduce
+              costs substantially, with several source materials pointing to
+              savings in the 30–60% range.
+            </p>
+          </section>
+
+          <section class="project-section">
+            <h2>Limitations and Reflections</h2>
+            <p>
+              The most important limitation was not analytical complexity. It was
+              data access. Much of the public cost information was old,
+              incomplete, highly local, or buried in formats that made direct
+              comparison difficult. Contractors also often required a real
+              project address before sharing pricing information, which limited
+              direct cost validation.
+            </p>
+            <p>
+              I also found clear geographic bias in the available data. The
+              Northeast was better represented than the Midwest and Great Plains,
+              which means the resulting comparison is informative but not evenly
+              distributed across the U.S. landscape.
+            </p>
+            <p>
+              What made this project valuable to me was learning how to make a
+              messy evidence base more usable without pretending it was cleaner
+              than it really was. The report is strongest as a structured
+              decision-support reference, and future work could improve it with
+              newer contractor data, stronger regional coverage, and more
+              systematic treatment of maintenance assumptions over time.
+            </p>
+          </section>
+
+          <section class="project-section">
+            <h2>Tools</h2>
+            <div class="tag-list project-tag-list">
+              <span class="tag">Research Synthesis</span>
+              <span class="tag">Cost Analysis</span>
+              <span class="tag">Comparative Benchmarking</span>
+              <span class="tag">Data Normalization</span>
+              <span class="tag">Urban Sustainability</span>
+              <span class="tag">Source Auditing</span>
+              <span class="tag">Report Design</span>
+            </div>
+          </section>
+
+          <section class="project-section">
+            <h2>Links and Assets</h2>
+            <div class="project-link-row">
+              <a class="project-link-button" href="../assets/urban-green/urban-green-infrastructure-report.pdf" target="_blank" rel="noopener">Full Report</a>
+              <a class="project-link-button" href="#visuals">Figure Gallery</a>
+              <a class="project-link-button" href="#approach">Method Notes</a>
+            </div>
+          </section>
 
         </div>
       </article>
@@ -110,43 +327,49 @@
       <aside class="project-detail__sidebar">
 
         <div class="sidebar-section">
-          <h4>Year</h4>
-          <p class="sidebar-meta">2023</p>
+          <h4>Project Snapshot</h4>
+          <p class="sidebar-meta">
+            Comparative cost and source analysis for seven urban green
+            infrastructure categories, built to make fragmented planning data
+            more interpretable.
+          </p>
         </div>
 
         <div class="sidebar-section">
-          <h4>Category</h4>
-          <p class="sidebar-meta">Physical Climate Risk<br>TCFD Disclosure<br>ESG Strategy</p>
-        </div>
-
-        <div class="sidebar-section">
-          <h4>Tools &amp; Frameworks</h4>
+          <h4>Categories</h4>
           <ul>
-            <li>Python (pandas, geopandas)</li>
-            <li>TCFD Framework</li>
-            <li>RCP 4.5 / 8.5 Scenarios</li>
-            <li>Moody's ESG / Four Twenty Seven</li>
-            <li>WRI Aqueduct</li>
-            <li>FATHOM Flood Maps</li>
-            <li>CDP Disclosure</li>
+            <li>Tree installation</li>
+            <li>Lawn installation</li>
+            <li>Bioswale</li>
+            <li>Greenway / trail</li>
+            <li>Rain garden</li>
+            <li>Green roof</li>
+            <li>Vertical greenery</li>
           </ul>
         </div>
 
         <div class="sidebar-section">
-          <h4>Scope</h4>
-          <p class="sidebar-meta">200+ Facilities<br>6 Continents<br>7 Hazard Types</p>
+          <h4>Core Output</h4>
+          <p class="sidebar-meta">Standardized comparison table, source usage analysis, and category-by-category cost framing</p>
         </div>
 
         <div class="sidebar-section">
-          <h4>Scenarios</h4>
-          <p class="sidebar-meta">RCP 4.5 &amp; RCP 8.5<br>Horizons: 2030, 2050</p>
+          <h4>What Stood Out</h4>
+          <p class="sidebar-meta">The biggest challenge was not modeling. It was making inconsistent, regionally biased cost data usable without overclaiming precision.</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h4>Assets</h4>
+          <ul>
+            <li><a href="../assets/urban-green/urban-green-infrastructure-report.pdf" target="_blank" rel="noopener">Research report</a></li>
+            <li><a href="#visuals">Selected visuals</a></li>
+          </ul>
         </div>
 
       </aside>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Zhilin (Cassiel) Chen</p>
     <a href="https://github.com/zche124" target="_blank" rel="noopener">GitHub</a>
