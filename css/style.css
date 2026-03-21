@@ -185,48 +185,20 @@ img {
   justify-content: flex-end;
 }
 
-/* Stats grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* Home portrait */
+.home-portrait {
+  margin: 0 0 2.5rem;
   border: 1px solid var(--border);
-  margin-bottom: 2.5rem;
+  background: var(--bg-card);
+  overflow: hidden;
 }
 
-.stat-cell {
-  padding: 1.6rem 1.8rem;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-}
-
-.stat-cell:nth-child(even) {
-  border-right: none;
-}
-
-.stat-cell:nth-last-child(-n+2) {
-  border-bottom: none;
-}
-
-.stat-number {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.4rem;
-}
-
-.stat-number.large {
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
-}
-
-.stat-label {
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  line-height: 1.5;
+.home-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 /* Featured project card */
@@ -1039,9 +1011,5 @@ img {
 
   .home-name {
     font-size: 3.2rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
