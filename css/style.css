@@ -638,56 +638,41 @@ img {
   display: block;
 }
 
-.about-map__marker {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  transform: translate(-50%, -50%);
-  z-index: 1;
+.about-map__point circle {
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 2;
 }
 
-.about-map__dot {
-  width: 0.58rem;
-  height: 0.58rem;
-  border-radius: 999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0 1px rgba(42, 51, 44, 0.1);
-  display: block;
-}
-
-.about-map__label {
-  position: absolute;
-  left: var(--dx);
-  top: var(--dy);
+.about-map__point text {
   font-family: var(--mono);
-  font-size: 0.55rem;
+  font-size: 18px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text);
-  white-space: nowrap;
-  background: rgba(237, 243, 238, 0.9);
-  padding: 0.18rem 0.35rem;
-  border: 1px solid rgba(147, 168, 150, 0.55);
+  fill: var(--text);
 }
 
-.about-map__marker--born .about-map__dot,
+.about-map__point--born circle,
 .about-map__legend-item--born::before {
   background: #2d5a3d;
+  fill: #2d5a3d;
 }
 
-.about-map__marker--school .about-map__dot,
+.about-map__point--school circle,
 .about-map__legend-item--school::before {
   background: #8b7b4f;
+  fill: #8b7b4f;
 }
 
-.about-map__marker--lived .about-map__dot,
+.about-map__point--lived circle,
 .about-map__legend-item--lived::before {
   background: #446f86;
+  fill: #446f86;
 }
 
-.about-map__marker--travel .about-map__dot,
+.about-map__point--travel circle,
 .about-map__legend-item--travel::before {
   background: #9b5f4a;
+  fill: #9b5f4a;
 }
 
 .about-map__legend {
@@ -1120,10 +1105,5 @@ img {
 
   .about-map__canvas {
     height: 220px;
-  }
-
-  .about-map__label {
-    font-size: 0.5rem;
-    letter-spacing: 0.07em;
   }
 }
