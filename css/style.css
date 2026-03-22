@@ -174,7 +174,7 @@ img {
   border: 1px solid var(--border-dark);
   color: var(--text-mid);
   padding: 0.35rem 0.75rem;
-  background: transparent;
+  background: var(--bg-card);
 }
 
 /* Right column */
