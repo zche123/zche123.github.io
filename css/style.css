@@ -668,8 +668,8 @@ img {
 
 .about-map__point text {
   font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 9px !important;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   fill: var(--text);
 }
