@@ -655,8 +655,8 @@ img {
 }
 
 .about-map__base {
-  width: 820px;
-  min-width: 820px;
+  width: 980px;
+  min-width: 980px;
   height: 100%;
   display: block;
 }
@@ -1131,7 +1131,7 @@ img {
   }
 
   .about-map__base {
-    width: 760px;
-    min-width: 760px;
+    width: 900px;
+    min-width: 900px;
   }
 }
