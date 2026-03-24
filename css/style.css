@@ -815,6 +815,19 @@ img {
   line-height: 1.65;
 }
 
+.experience-item__desc--list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.experience-item__desc--list li {
+  margin-bottom: 0.35rem;
+}
+
+.experience-item__desc--list li:last-child {
+  margin-bottom: 0;
+}
+
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
