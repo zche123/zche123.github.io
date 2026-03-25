@@ -56,3 +56,54 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     }
   });
 });
+
+/* --- Experience map modal -------------------------------- */
+(function initExperienceMap() {
+  const shell = document.querySelector('[data-experience-map]');
+  if (!shell) return;
+
+  const modal = document.querySelector('[data-experience-modal]');
+  const overlay = document.querySelector('[data-experience-overlay]');
+  const title = document.querySelector('[data-experience-title]');
+  const subtitle = document.querySelector('[data-experience-subtitle]');
+  const body = document.querySelector('[data-experience-body]');
+  const image = document.querySelector('[data-experience-image]');
+  const imageCaption = document.querySelector('[data-experience-image-caption]');
+  const closeButtons = document.querySelectorAll('[data-experience-close]');
+
+  function openModal(button) {
+    if (!modal || !overlay || !title || !subtitle || !body || !image || !imageCaption) return;
+
+    title.textContent = button.dataset.title || '';
+    subtitle.textContent = button.dataset.subtitle || '';
+    body.textContent = button.dataset.body || '';
+    image.src = button.dataset.image || '';
+    image.alt = button.dataset.title || 'Experience image placeholder';
+    imageCaption.textContent = button.dataset.caption || '';
+
+    modal.hidden = false;
+    overlay.hidden = false;
+    document.body.classList.add('experience-modal-open');
+  }
+
+  function closeModal() {
+    if (!modal || !overlay) return;
+    modal.hidden = true;
+    overlay.hidden = true;
+    document.body.classList.remove('experience-modal-open');
+  }
+
+  shell.querySelectorAll('[data-experience-target]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      openModal(button);
+    });
+  });
+
+  closeButtons.forEach(function (button) {
+    button.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+}());

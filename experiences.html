@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiences — Zhilin (Cassiel) Chen</title>
+  <meta name="description" content="A map-based archive of places and experiences that have shaped Zhilin (Cassiel) Chen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
+    <ul class="site-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+    <section class="experience-shell" data-experience-map>
+      <div class="experience-shell__header">
+        <p class="label">Places Archive</p>
+        <h1>Experiences</h1>
+        <p class="experience-shell__intro">
+          A map-based way of tracing the places that have shaped my work,
+          curiosity, and life so far. Each pin opens a short story card, and
+          each card is designed to hold both writing and photos.
+        </p>
+      </div>
+
+      <div class="experience-map-panel">
+        <div class="experience-map-panel__frame">
+          <img class="experience-map-panel__image" src="assets/about/world-map-natural-earth.png" alt="World map" />
+
+          <button class="experience-pin" style="left: 82.5%; top: 36.9%;" data-experience-target data-title="Nantong, China" data-subtitle="Born here" data-body="Dummy entry: this pin can hold a personal origin story, family context, or reflections on how place shaped perspective early on." data-image="assets/home/home-portrait.jpg" data-caption="Replace this with a Nantong-specific photo later.">
+            <span class="experience-pin__dot"></span>
+            <span class="experience-pin__label">Nantong</span>
+          </button>
+
+          <button class="experience-pin" style="left: 82.8%; top: 37.6%;" data-experience-target data-title="Shanghai, China" data-subtitle="Lived here" data-body="Dummy entry: use this card for a short reflection on moving through Shanghai, what you learned there, and how the city fits into your story." data-image="assets/contact/contact-background.png" data-caption="You can swap in a Shanghai photo later.">
+            <span class="experience-pin__dot"></span>
+            <span class="experience-pin__label">Shanghai</span>
+          </button>
+
+          <button class="experience-pin" style="left: 16.1%; top: 36.0%;" data-experience-target data-title="Cupertino, California" data-subtitle="Lived here" data-body="Dummy entry: this card could describe a formative move, a period of transition, or a set of memories tied to California." data-image="assets/contact/contact-background.png" data-caption="Placeholder image slot for Cupertino.">
+            <span class="experience-pin__dot"></span>
+            <span class="experience-pin__label">Cupertino</span>
+          </button>
+
+          <button class="experience-pin" style="left: 26.6%; top: 38.7%;" data-experience-target data-title="Atlanta, Georgia" data-subtitle="School and work" data-body="Dummy entry: this is a good place for an Emory and post-grad chapter, tying together research, sustainability work, and daily life in Atlanta." data-image="assets/home/home-portrait.jpg" data-caption="Placeholder image slot for Atlanta.">
+            <span class="experience-pin__dot"></span>
+            <span class="experience-pin__label">Atlanta</span>
+          </button>
+
+          <button class="experience-pin" style="left: 88.8%; top: 37.0%;" data-experience-target data-title="Tokyo, Japan" data-subtitle="Traveled here" data-body="Dummy entry: use this card for a travel memory, a snapshot of what stayed with you, or a short cultural reflection." data-image="assets/sea-turtle/jetty-field-photo.jpg" data-caption="Placeholder image slot for Tokyo.">
+            <span class="experience-pin__dot"></span>
+            <span class="experience-pin__label">Tokyo</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="experience-overlay" data-experience-overlay hidden></div>
+  <section class="experience-modal" data-experience-modal hidden>
+    <button class="experience-modal__close" type="button" aria-label="Close experience card" data-experience-close>&times;</button>
+    <div class="experience-modal__image-wrap">
+      <img class="experience-modal__image" src="" alt="" data-experience-image />
+      <p class="experience-modal__caption" data-experience-image-caption></p>
+    </div>
+    <div class="experience-modal__content">
+      <p class="label" data-experience-subtitle></p>
+      <h2 data-experience-title></h2>
+      <p data-experience-body></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Zhilin (Cassiel) Chen</p>
+    <a href="https://github.com/zche124" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
