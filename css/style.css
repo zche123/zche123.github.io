@@ -402,6 +402,7 @@ img {
 }
 
 .experience-pin__label {
+  display: inline-block;
   font-family: var(--mono);
   font-size: 0.56rem;
   letter-spacing: 0.12em;
@@ -410,6 +411,7 @@ img {
   background: rgba(237, 243, 238, 0.9);
   border: 1px solid rgba(147, 168, 150, 0.6);
   padding: 0.18rem 0.35rem;
+  transform: translate(var(--label-x, 0), var(--label-y, 0));
 }
 
 .experience-overlay {
