@@ -831,21 +831,33 @@ img {
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
+.contact-page {
+  background-image:
+    linear-gradient(rgba(237, 243, 238, 0.72), rgba(237, 243, 238, 0.8)),
+    url("../assets/contact/contact-background.png");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
   padding: 5rem 0 6rem;
   min-height: calc(100vh - 52px);
+  backdrop-filter: blur(1px);
 }
 
 .contact-left {
   padding-right: 4rem;
   border-right: 1px solid var(--border);
+  background: rgba(237, 243, 238, 0.68);
 }
 
 .contact-right {
   padding-left: 4rem;
+  background: rgba(237, 243, 238, 0.76);
 }
 
 .contact-heading {
@@ -1087,11 +1099,13 @@ img {
     border-right: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 3rem;
+    background: rgba(237, 243, 238, 0.72);
   }
 
   .contact-right {
     padding-left: 0;
     padding-top: 3rem;
+    background: rgba(237, 243, 238, 0.8);
   }
 
   .project-detail__main {
