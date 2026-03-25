@@ -83,6 +83,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
     modal.hidden = false;
     overlay.hidden = false;
+    modal.style.display = 'grid';
+    overlay.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
     document.body.classList.add('experience-modal-open');
   }
 
@@ -90,6 +94,16 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     if (!modal || !overlay) return;
     modal.hidden = true;
     overlay.hidden = true;
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    title.textContent = '';
+    subtitle.textContent = '';
+    body.textContent = '';
+    image.removeAttribute('src');
+    image.alt = '';
+    imageCaption.textContent = '';
     document.body.classList.remove('experience-modal-open');
   }
 
@@ -100,8 +114,16 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   });
 
   closeButtons.forEach(function (button) {
-    button.addEventListener('click', closeModal);
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeModal();
+    });
   });
+
+  if (overlay) {
+    overlay.addEventListener('click', closeModal);
+  }
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeModal();
