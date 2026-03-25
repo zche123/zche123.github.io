@@ -430,18 +430,31 @@ img {
   background: rgba(237, 243, 238, 0.97);
   border: 1px solid var(--border-dark);
   z-index: 260;
+  overflow: hidden;
 }
 
 .experience-modal__close {
   position: absolute;
   top: 0.8rem;
   right: 0.9rem;
+  z-index: 3;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  background: transparent;
-  color: var(--text-mid);
+  background: rgba(237, 243, 238, 0.9);
+  color: var(--text);
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(111, 132, 120, 0.3);
+}
+
+.experience-modal__close:hover {
+  background: rgba(226, 235, 228, 0.98);
 }
 
 .experience-modal__image-wrap {
