@@ -62,6 +62,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   const shell = document.querySelector('[data-experience-map]');
   if (!shell) return;
 
+  const viewport = shell.querySelector('[data-map-viewport]');
+  const stage = shell.querySelector('[data-map-stage]');
+  const zoomSlider = shell.querySelector('[data-map-zoom-slider]');
+  const zoomButtons = shell.querySelectorAll('[data-map-zoom-action]');
   const modal = document.querySelector('[data-experience-modal]');
   const overlay = document.querySelector('[data-experience-overlay]');
   const title = document.querySelector('[data-experience-title]');
@@ -70,6 +74,29 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   const image = document.querySelector('[data-experience-image]');
   const imageCaption = document.querySelector('[data-experience-image-caption]');
   const closeButtons = document.querySelectorAll('[data-experience-close]');
+  let zoomLevel = 1;
+
+  function applyZoom(nextZoom, preserveCenter) {
+    if (!stage) return;
+
+    const clampedZoom = Math.max(1, Math.min(2.4, nextZoom));
+    const previousZoom = zoomLevel;
+    zoomLevel = clampedZoom;
+    stage.style.setProperty('--map-zoom', String(clampedZoom));
+
+    if (zoomSlider) {
+      zoomSlider.value = String(clampedZoom);
+    }
+
+    if (viewport && preserveCenter && previousZoom !== clampedZoom) {
+      const widthRatio = clampedZoom / previousZoom;
+      const viewportCenterX = viewport.scrollLeft + viewport.clientWidth / 2;
+      const viewportCenterY = viewport.scrollTop + viewport.clientHeight / 2;
+
+      viewport.scrollLeft = viewportCenterX * widthRatio - viewport.clientWidth / 2;
+      viewport.scrollTop = viewportCenterY * widthRatio - viewport.clientHeight / 2;
+    }
+  }
 
   function openModal(button) {
     if (!modal || !overlay || !title || !subtitle || !body || !image || !imageCaption) return;
@@ -113,6 +140,27 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     });
   });
 
+  if (zoomSlider) {
+    zoomSlider.addEventListener('input', function () {
+      applyZoom(parseFloat(zoomSlider.value), true);
+    });
+  }
+
+  zoomButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const action = button.dataset.mapZoomAction;
+      if (action === 'in') applyZoom(zoomLevel + 0.2, true);
+      if (action === 'out') applyZoom(zoomLevel - 0.2, true);
+      if (action === 'reset') {
+        applyZoom(1, false);
+        if (viewport) {
+          viewport.scrollLeft = 0;
+          viewport.scrollTop = 0;
+        }
+      }
+    });
+  });
+
   closeButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
       e.preventDefault();
@@ -128,4 +176,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeModal();
   });
+
+  applyZoom(1, false);
 }());
