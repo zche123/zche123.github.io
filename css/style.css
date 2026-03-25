@@ -419,6 +419,11 @@ img {
   z-index: 250;
 }
 
+.experience-overlay[hidden],
+.experience-modal[hidden] {
+  display: none !important;
+}
+
 .experience-modal {
   position: fixed;
   top: 50%;
