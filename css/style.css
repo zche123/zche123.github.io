@@ -507,6 +507,7 @@ img {
 .experience-modal__content p:last-child {
   color: var(--text-mid);
   line-height: 1.75;
+  white-space: pre-line;
 }
 
 .experience-modal-open {
