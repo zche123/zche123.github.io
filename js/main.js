@@ -64,8 +64,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
   const viewport = shell.querySelector('[data-map-viewport]');
   const stage = shell.querySelector('[data-map-stage]');
-  const zoomSlider = shell.querySelector('[data-map-zoom-slider]');
-  const zoomButtons = shell.querySelectorAll('[data-map-zoom-action]');
   const modal = document.querySelector('[data-experience-modal]');
   const overlay = document.querySelector('[data-experience-overlay]');
   const title = document.querySelector('[data-experience-title]');
@@ -83,10 +81,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     const previousZoom = zoomLevel;
     zoomLevel = clampedZoom;
     stage.style.setProperty('--map-zoom', String(clampedZoom));
-
-    if (zoomSlider) {
-      zoomSlider.value = String(clampedZoom);
-    }
 
     if (viewport && preserveCenter && previousZoom !== clampedZoom) {
       const widthRatio = clampedZoom / previousZoom;
@@ -140,26 +134,32 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     });
   });
 
-  if (zoomSlider) {
-    zoomSlider.addEventListener('input', function () {
-      applyZoom(parseFloat(zoomSlider.value), true);
+  if (viewport && stage) {
+    viewport.addEventListener('wheel', function (e) {
+      if (e.ctrlKey) return;
+      e.preventDefault();
+
+      const rect = viewport.getBoundingClientRect();
+      const cursorX = e.clientX - rect.left + viewport.scrollLeft;
+      const cursorY = e.clientY - rect.top + viewport.scrollTop;
+      const nextZoom = e.deltaY < 0 ? zoomLevel + 0.12 : zoomLevel - 0.12;
+      const clampedZoom = Math.max(1, Math.min(2.4, nextZoom));
+
+      if (clampedZoom === zoomLevel) return;
+
+      const zoomRatio = clampedZoom / zoomLevel;
+      applyZoom(clampedZoom, false);
+
+      viewport.scrollLeft = cursorX * zoomRatio - (e.clientX - rect.left);
+      viewport.scrollTop = cursorY * zoomRatio - (e.clientY - rect.top);
+    }, { passive: false });
+
+    viewport.addEventListener('dblclick', function () {
+      applyZoom(1, false);
+      viewport.scrollLeft = 0;
+      viewport.scrollTop = 0;
     });
   }
-
-  zoomButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      const action = button.dataset.mapZoomAction;
-      if (action === 'in') applyZoom(zoomLevel + 0.2, true);
-      if (action === 'out') applyZoom(zoomLevel - 0.2, true);
-      if (action === 'reset') {
-        applyZoom(1, false);
-        if (viewport) {
-          viewport.scrollLeft = 0;
-          viewport.scrollTop = 0;
-        }
-      }
-    });
-  });
 
   closeButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
