@@ -71,8 +71,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   const body = document.querySelector('[data-experience-body]');
   const image = document.querySelector('[data-experience-image]');
   const imageCaption = document.querySelector('[data-experience-image-caption]');
+  const prevImageButton = document.querySelector('[data-experience-image-prev]');
+  const nextImageButton = document.querySelector('[data-experience-image-next]');
   const closeButtons = document.querySelectorAll('[data-experience-close]');
   let zoomLevel = 1;
+  let galleryImages = [];
+  let galleryIndex = 0;
 
   function applyZoom(nextZoom, preserveCenter) {
     if (!stage) return;
@@ -92,15 +96,42 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     }
   }
 
+  function updateGallery() {
+    if (!image || !imageCaption) return;
+
+    const currentImage = galleryImages[galleryIndex];
+    if (!currentImage) {
+      image.removeAttribute('src');
+      image.alt = '';
+      imageCaption.textContent = '';
+      if (prevImageButton) prevImageButton.hidden = true;
+      if (nextImageButton) nextImageButton.hidden = true;
+      return;
+    }
+
+    image.src = currentImage;
+    image.alt = title ? (title.textContent || 'Experience image') : 'Experience image';
+    imageCaption.textContent = galleryImages.length > 1
+      ? 'Photo ' + (galleryIndex + 1) + ' of ' + galleryImages.length
+      : '';
+
+    const showNav = galleryImages.length > 1;
+    if (prevImageButton) prevImageButton.hidden = !showNav;
+    if (nextImageButton) nextImageButton.hidden = !showNav;
+  }
+
   function openModal(button) {
     if (!modal || !overlay || !title || !subtitle || !body || !image || !imageCaption) return;
 
     title.textContent = button.dataset.title || '';
     subtitle.textContent = button.dataset.subtitle || '';
     body.textContent = button.dataset.body || '';
-    image.src = button.dataset.image || '';
-    image.alt = button.dataset.title || 'Experience image placeholder';
-    imageCaption.textContent = button.dataset.caption || '';
+    galleryImages = (button.dataset.images || button.dataset.image || '')
+      .split('|')
+      .map(function (item) { return item.trim(); })
+      .filter(Boolean);
+    galleryIndex = 0;
+    updateGallery();
 
     modal.hidden = false;
     overlay.hidden = false;
@@ -122,9 +153,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     title.textContent = '';
     subtitle.textContent = '';
     body.textContent = '';
+    galleryImages = [];
+    galleryIndex = 0;
     image.removeAttribute('src');
     image.alt = '';
     imageCaption.textContent = '';
+    if (prevImageButton) prevImageButton.hidden = true;
+    if (nextImageButton) nextImageButton.hidden = true;
     document.body.classList.remove('experience-modal-open');
   }
 
@@ -171,6 +206,26 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
   if (overlay) {
     overlay.addEventListener('click', closeModal);
+  }
+
+  if (prevImageButton) {
+    prevImageButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (galleryImages.length < 2) return;
+      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGallery();
+    });
+  }
+
+  if (nextImageButton) {
+    nextImageButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (galleryImages.length < 2) return;
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+      updateGallery();
+    });
   }
 
   document.addEventListener('keydown', function (e) {

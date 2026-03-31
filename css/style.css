@@ -474,6 +474,7 @@ img {
 }
 
 .experience-modal__image-wrap {
+  position: relative;
   border-right: 1px solid var(--border);
   background: var(--bg-card);
 }
@@ -482,6 +483,35 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.experience-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(147, 168, 150, 0.75);
+  background: rgba(237, 243, 238, 0.9);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.experience-modal__nav--prev {
+  left: 0.85rem;
+}
+
+.experience-modal__nav--next {
+  right: 0.85rem;
+}
+
+.experience-modal__nav[hidden] {
+  display: none;
 }
 
 .experience-modal__caption {
