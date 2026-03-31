@@ -1068,12 +1068,12 @@ img {
 .contact-left {
   padding-right: 4rem;
   border-right: 1px solid var(--border);
-  background: rgba(237, 243, 238, 0.68);
+  background: transparent;
 }
 
 .contact-right {
   padding-left: 4rem;
-  background: rgba(237, 243, 238, 0.76);
+  background: transparent;
 }
 
 .contact-heading {
@@ -1315,13 +1315,13 @@ img {
     border-right: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 3rem;
-    background: rgba(237, 243, 238, 0.72);
+    background: transparent;
   }
 
   .contact-right {
     padding-left: 0;
     padding-top: 3rem;
-    background: rgba(237, 243, 238, 0.8);
+    background: transparent;
   }
 
   .project-detail__main {
