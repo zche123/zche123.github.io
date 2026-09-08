@@ -131,86 +131,190 @@
 <p>The goal was not simply visualization. It was to create a common performance language across regions—making trends easier to identify, comparisons easier to make, and areas for improvement easier to prioritize.</p>
 <p>Because the underlying data and dashboard contain confidential company information, the live dashboard cannot be reproduced publicly. This case study instead presents the system architecture, design logic, and analytical approach behind the work without exposing proprietary data.</p>
 </div>
-<figure class="case-artifact case-dashboard">
+<figure class="case-artifact case-dashboard energy-dashboard">
 <div class="artifact-heading">
 <span class="label">Illustrative reconstruction</span>
 <span class="artifact-label">Synthetic data</span>
 </div>
+<div class="energy-layout">
+<aside class="energy-sidebar" aria-label="Illustrative filter structure; not interactive">
+<p class="energy-filter-note">Filter structure<br>Static illustration</p>
+<h4>Region</h4>
+<ul>
+<li>All regions</li>
+<li class="sample-selected">Example region A<ul>
+<li>Example site 01</li>
+<li>Example site 02</li>
+<li>Example site 03</li>
+</ul>
+</li>
+<li>Example region B</li>
+<li>Example region C</li>
+</ul>
+<h4>Year</h4>
+<ul>
+<li>All years</li>
+<li>2021</li>
+<li>2022</li>
+<li>2023</li>
+<li>2024</li>
+<li>2025</li>
+</ul>
+</aside>
+<div class="energy-main">
 <div class="dashboard-title">
-<h4>ESG performance / Design study</h4>
-<p>Global operations · Example periods A–D</p>
+<h4>Sustainability KPI Tracking: 2021–2025</h4>
+<p>Energy / Illustrative layout study</p>
 </div>
-<div class="dashboard-metrics">
+<div class="energy-charts">
+<div class="energy-chart energy-chart--wide">
+<h4>Total Energy Consumption (MWh)</h4>
+<div class="energy-bars" role="img" aria-label="Synthetic Total Energy Consumption: 2021 18000 MWh, 2022 17200 MWh, 2023 16400 MWh, 2024 15700 MWh, 2025 14900 MWh. Not company data.">
 <div>
-<span>Emissions</span>
-<strong>82 <small>index</small>
-</strong>
-<p>Synthetic baseline: 100</p>
-</div>
-<div>
-<span>Energy</span>
-<strong>91 <small>index</small>
-</strong>
-<p>Synthetic baseline: 100</p>
-</div>
-<div>
-<span>Material metrics</span>
-<strong>~30</strong>
-<p>Production scope; values withheld</p>
-</div>
-</div>
-<div class="dashboard-analysis">
-<div>
-<h4>Progress over time</h4>
-<p class="chart-caption">Illustrative emissions index</p>
-<div class="case-bars" role="img" aria-label="Synthetic emissions index: period A 100, B 94, C 88, D 82. Not company performance.">
-<div>
-<span>100</span>
-<i style="--bar:100%">
+<span>18,000</span>
+<i style="--bar:86.96%" aria-hidden="true">
 </i>
-<small>A</small>
+<small>2021</small>
 </div>
 <div>
-<span>94</span>
-<i style="--bar:94%">
+<span>17,200</span>
+<i style="--bar:83.09%" aria-hidden="true">
 </i>
-<small>B</small>
+<small>2022</small>
 </div>
 <div>
-<span>88</span>
-<i style="--bar:88%">
+<span>16,400</span>
+<i style="--bar:79.23%" aria-hidden="true">
 </i>
-<small>C</small>
+<small>2023</small>
 </div>
 <div>
-<span>82</span>
-<i style="--bar:82%">
+<span>15,700</span>
+<i style="--bar:75.85%" aria-hidden="true">
 </i>
-<small>D</small>
-</div>
-</div>
+<small>2024</small>
 </div>
 <div>
-<h4>Regional performance</h4>
-<p class="chart-caption">Synthetic energy index · baseline 100</p>
-<dl class="sample-regions">
+<span>14,900</span>
+<i style="--bar:71.98%" aria-hidden="true">
+</i>
+<small>2025</small>
+</div>
+</div>
+<p class="energy-chart-region">Example region A</p>
+</div>
+<div class="energy-chart">
+<h4>Indirect Energy Consumption (GJ)</h4>
+<div class="energy-bars" role="img" aria-label="Synthetic Indirect Energy Consumption: 2021 36000 GJ, 2022 34000 GJ, 2023 32000 GJ, 2024 30000 GJ, 2025 28000 GJ. Not company data.">
 <div>
-<dt>Region A</dt>
-<dd>89</dd>
+<span>36,000</span>
+<i style="--bar:86.96%" aria-hidden="true">
+</i>
+<small>2021</small>
 </div>
 <div>
-<dt>Region B</dt>
-<dd>93</dd>
+<span>34,000</span>
+<i style="--bar:82.13%" aria-hidden="true">
+</i>
+<small>2022</small>
 </div>
 <div>
-<dt>Region C</dt>
-<dd>91</dd>
+<span>32,000</span>
+<i style="--bar:77.29%" aria-hidden="true">
+</i>
+<small>2023</small>
 </div>
-</dl>
+<div>
+<span>30,000</span>
+<i style="--bar:72.46%" aria-hidden="true">
+</i>
+<small>2024</small>
+</div>
+<div>
+<span>28,000</span>
+<i style="--bar:67.63%" aria-hidden="true">
+</i>
+<small>2025</small>
 </div>
 </div>
-<div class="dashboard-logic">Regional inputs <span aria-hidden="true">→</span> Common definitions <span aria-hidden="true">→</span> Material metrics <span aria-hidden="true">→</span> Executive view</div>
-<figcaption>Illustrative reconstruction using synthetic data. The production dashboard contains proprietary company information and is not reproduced here.</figcaption>
+<p class="energy-chart-region">Example region A</p>
+</div>
+<div class="energy-chart">
+<h4>Direct Energy Consumption (GJ)</h4>
+<div class="energy-bars" role="img" aria-label="Synthetic Direct Energy Consumption: 2021 28800 GJ, 2022 27920 GJ, 2023 27040 GJ, 2024 26520 GJ, 2025 25640 GJ. Not company data.">
+<div>
+<span>28,800</span>
+<i style="--bar:86.96%" aria-hidden="true">
+</i>
+<small>2021</small>
+</div>
+<div>
+<span>27,920</span>
+<i style="--bar:84.30%" aria-hidden="true">
+</i>
+<small>2022</small>
+</div>
+<div>
+<span>27,040</span>
+<i style="--bar:81.64%" aria-hidden="true">
+</i>
+<small>2023</small>
+</div>
+<div>
+<span>26,520</span>
+<i style="--bar:80.07%" aria-hidden="true">
+</i>
+<small>2024</small>
+</div>
+<div>
+<span>25,640</span>
+<i style="--bar:77.42%" aria-hidden="true">
+</i>
+<small>2025</small>
+</div>
+</div>
+<p class="energy-chart-region">Example region A</p>
+</div>
+<div class="energy-chart energy-chart--wide">
+<h4>Renewable Energy Use (MWh)</h4>
+<div class="energy-bars" role="img" aria-label="Synthetic Renewable Energy Use: 2021 1200 MWh, 2022 1800 MWh, 2023 2600 MWh, 2024 3500 MWh, 2025 4800 MWh. Not company data.">
+<div>
+<span>1,200</span>
+<i style="--bar:21.74%" aria-hidden="true">
+</i>
+<small>2021</small>
+</div>
+<div>
+<span>1,800</span>
+<i style="--bar:32.61%" aria-hidden="true">
+</i>
+<small>2022</small>
+</div>
+<div>
+<span>2,600</span>
+<i style="--bar:47.10%" aria-hidden="true">
+</i>
+<small>2023</small>
+</div>
+<div>
+<span>3,500</span>
+<i style="--bar:63.41%" aria-hidden="true">
+</i>
+<small>2024</small>
+</div>
+<div>
+<span>4,800</span>
+<i style="--bar:86.96%" aria-hidden="true">
+</i>
+<small>2025</small>
+</div>
+</div>
+<p class="energy-chart-region">Example region A</p>
+</div>
+</div>
+</div>
+</div>
+<figcaption>Illustrative reconstruction using synthetic data. Region and site names are placeholders; all chart values are invented. The layout reflects the dashboard’s regional filters and energy views. The production dashboard contains proprietary company information and is not reproduced here.</figcaption>
 </figure>
 </div>
 </section>
@@ -225,6 +329,11 @@
 <p>The process brought together environmental metrics, regional initiatives, operational developments, and broader sustainability performance into a single reporting structure. Beyond producing a publication, the work required creating repeatable workflows for collecting information, validating claims, resolving inconsistencies, and determining which developments were material enough to communicate.</p>
 <p>Reporting became, in this sense, more than an output. It became a mechanism for understanding the organization itself.</p>
 </div>
+<p class="public-report-link">
+<a class="text-link" href="https://www.dematic.com/content/dam/dematic/downloads/ebooks/2025-sustainability-report/188-EB-EN_2025-dematic-annual-sustainability-report.pdf#report" target="_blank" rel="noopener">Read the 2025 Dematic Sustainability Report <span aria-hidden="true">↗</span>
+</a>
+<span>Public report · PDF · Opens in a new tab</span>
+</p>
 <figure class="case-artifact">
 <div class="artifact-heading">
 <span class="label">Public-facing summary</span>
@@ -310,32 +419,7 @@
 <p>I also developed a recurring legislative newsletter to translate these developments for internal stakeholders—turning dense regulatory changes into concise explanations of what changed, why it mattered, and what the organization should watch next.</p>
 <p>This work became one of the areas that most interested me: the space between environmental objectives written into regulation and the practical systems organizations must build to respond to them.</p>
 </div>
-<figure class="case-artifact">
-<div class="artifact-heading">
-<span class="label">Illustrative reconstruction</span>
-<span>Newsletter structure</span>
-</div>
-<h4 class="artifact-title">From legislative text to a shared understanding.</h4>
-<div class="interpret-grid">
-<div>
-<h4>What changed</h4>
-<p>Compare the new text with earlier requirements and guidance.</p>
-</div>
-<div>
-<h4>Who is affected</h4>
-<p>Consider organizational scope and potential applicability.</p>
-</div>
-<div>
-<h4>When it applies</h4>
-<p>Distinguish timelines, implementation stages, and open questions.</p>
-</div>
-<div>
-<h4>What it means</h4>
-<p>Translate developments into operational considerations and next steps.</p>
-</div>
-</div>
-<figcaption>Generic editorial framework. No internal newsletter content, legal conclusions, or compliance timelines are reproduced.</figcaption>
-</figure>
+
 </div>
 </section>
 <section class="case-chapter" id="assess-risk" aria-labelledby="assess-risk-title" tabindex="-1">
@@ -345,39 +429,14 @@
 </div>
 <div class="chapter-content">
 <div class="case-prose">
-<p>I helped develop the company’s first TCFD-aligned climate disclosure framework, connecting climate-related risks with governance, strategy, risk management, metrics, and targets.</p>
+<p>I helped develop the company’s first TCFD-aligned climate disclosure report, connecting climate-related risks with governance, strategy, risk management, metrics, and targets.</p>
 <p>The project required thinking about environmental change differently—not only as something to measure through emissions inventories, but as a source of physical, regulatory, financial, and operational risk.</p>
 <p>This work helped connect sustainability reporting with broader enterprise risk thinking, reinforcing a lesson that runs throughout my work: sustainability becomes most useful when it is integrated into existing systems for making business decisions.</p>
 </div>
-<figure class="case-artifact">
-<div class="artifact-heading">
-<span class="label">Public-facing summary</span>
-<span>Conceptual risk lenses / Unscored</span>
-</div>
-<div class="risk-grid">
-<div>
-<span class="label">01</span>
-<h4>Physical Risk</h4>
-<p>Environmental change and exposure.</p>
-</div>
-<div>
-<span class="label">02</span>
-<h4>Transition Risk</h4>
-<p>Shifts in markets, technology, and expectations.</p>
-</div>
-<div>
-<span class="label">03</span>
-<h4>Regulatory Risk</h4>
-<p>Changing obligations and disclosure requirements.</p>
-</div>
-<div>
-<span class="label">04</span>
-<h4>Operational Risk</h4>
-<p>Implications for continuity and day-to-day decisions.</p>
-</div>
-</div>
-<figcaption>Overlapping lenses for discussion, not a company risk register. No actual risk scores, rankings, or exposures are shown.</figcaption>
-</figure>
+<aside class="case-confidentiality tcfd-note" aria-label="Report availability">
+<span class="label">Internal report</span>
+<p>The report was subsequently classified for internal use and cannot be shared publicly. This overview describes my contribution without reproducing the report or its confidential findings.</p>
+</aside>
 </div>
 </section>
 <section class="case-chapter" id="act" aria-labelledby="act-title" tabindex="-1">
@@ -402,33 +461,6 @@
 </div>
 <figcaption>Metal-recycling rollout / Operational sustainability</figcaption>
 </figure>
-</div>
-</section>
-<section class="case-synthesis" aria-labelledby="system-title">
-<div>
-<p class="label">A connected practice</p>
-<h2 id="system-title">The System</h2>
-<ol class="synthesis-verbs" aria-label="Six components of the system">
-<li>Measure</li>
-<li>Report</li>
-<li>Benchmark</li>
-<li>Interpret</li>
-<li>Assess</li>
-<li>Act</li>
-</ol>
-</div>
-<div class="case-prose">
-<p>Taken individually, these projects produced very different outputs: a dashboard, a report, an assessment, a regulatory analysis, a climate disclosure, and an operational program.</p>
-<p class="synthesis-thesis">I see them instead as components of one system.</p>
-<ul class="synthesis-actions">
-<li>Measure what is happening.</li>
-<li>Report it consistently.</li>
-<li>Benchmark performance.</li>
-<li>Understand what is changing externally.</li>
-<li>Translate those changes into risk and strategy.</li>
-<li>Act on what the organization learns.</li>
-</ul>
-<p>That is what corporate sustainability has come to mean to me—not a collection of reports or commitments, but the infrastructure that allows an organization to understand its environmental responsibilities and respond to them systematically.</p>
 </div>
 </section>
 <section class="case-record" aria-labelledby="record-title">
