@@ -7,14 +7,15 @@
   <meta name="description" content="Environmental Data Scientist &amp; Sustainability Specialist. GIS, remote sensing, ESG systems, machine learning, climate risk." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="site-nav">
-    <a href="index.html" class="site-nav__logo">Zhilin (Cassiel) Chen</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo" aria-label="Zhilin Cassiel Chen — Home">CASSIEL CHEN<span class="brand-dot" aria-hidden="true">.</span></a>
     <ul class="site-nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
@@ -24,55 +25,27 @@
     </ul>
   </nav>
 
-  <!-- Main -->
-  <main class="page-wrapper">
-    <div class="home-grid">
-
-      <!-- Left: Text Content -->
-      <div class="home-left">
-        <p class="label home-subtitle">Environmental Data Science &amp;<br>Sustainability Systems</p>
-
-        <h1 class="home-name">
-          Zhilin<br>
-          <span class="name-italic">Cassiel</span><br>
-          Chen
-        </h1>
-
-        <p class="home-bio">
-          I work on making environmental decision-making more structured, 
-          measurable, and actionable. My experience ranges from modeling 
-          coastal ecosystems using remote sensing data to building climate 
-          risk and ESG systems for global operations, bridging environmental 
-          science with real-world decision frameworks.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Corporate Sustainability</span>
-          <span class="tag">Geospatial Modeling</span>
-          <span class="tag">Climate Risk &amp; Disclosure</span>
-          <span class="tag">ESG Reporting &amp; Data</span>
-          <span class="tag">R · Python · ArcGIS</span>
-        </div>
+  <main id="main-content">
+    <section class="editorial-hero" aria-labelledby="hero-title">
+      <img class="editorial-hero__image" src="assets/contact/contact-background.png" alt="A winding road through coastal hills beside the Pacific Ocean." fetchpriority="high" />
+      <div class="editorial-hero__top"><span>Environmental Data Science</span><span>Sustainability Systems</span></div>
+      <div class="editorial-hero__content">
+        <h1 id="hero-title">Understanding<br>our changing<br>world.</h1>
+        <div class="editorial-hero__aside"><p>From coastal ecosystems to global operations. Turning environmental data into meaningful decisions.</p><a class="button-light" href="projects.html">Explore my work <span aria-hidden="true">↗</span></a></div>
       </div>
-
-      <!-- Right: Stats + Featured Project -->
-      <div class="home-right">
-
-        <figure class="home-portrait">
-          <img src="assets/home/home-portrait.jpg" alt="Portrait of Zhilin Cassiel Chen in graduation attire." />
-        </figure>
-
-        
-        <p class="label featured-label">Featured Project</p>
-        <a href="projects/sea-turtle.html" class="featured-card">
-          <p class="label">Geospatial Modeling</p>
-          <h3>Sea Turtle Nesting Habitat — Jekyll Island</h3>
-          <p>Multi-variable suitability model integrating LiDAR dune profiles,
-             NDVI classification, and 13 years of tide-corrected shoreline data.</p>
-        </a>
-
+      <div class="editorial-hero__bottom"><span>Zhilin (Cassiel) Chen</span><a href="#introduction">A little about me <span aria-hidden="true">↓</span></a></div>
+    </section>
+    <section class="intro-section page-wrapper" id="introduction" aria-labelledby="intro-title">
+      <div class="section-heading"><p class="label">01 / Introduction</p><h2 id="intro-title">Science. Systems.<br>Real-world impact.</h2></div>
+      <div class="intro-grid">
+        <figure class="intro-portrait"><img src="assets/home/home-portrait.jpg" alt="Zhilin Cassiel Chen in graduation attire." loading="lazy" width="2899" height="3865" /><figcaption>Zhilin (Cassiel) Chen<br><span>Environmental Data Science &amp; Sustainability</span></figcaption></figure>
+        <div class="intro-copy"><p class="intro-statement">I work on making environmental decision-making more structured, measurable, and actionable.</p><p>My experience ranges from modeling coastal ecosystems using remote sensing data to building climate risk and ESG systems for global operations, bridging environmental science with real-world decision frameworks.</p><div class="expertise-list"><span>Corporate Sustainability</span><span>Geospatial Modeling</span><span>Climate Risk &amp; Disclosure</span><span>ESG Reporting &amp; Data</span><span>R · Python · ArcGIS</span></div></div>
       </div>
-    </div>
+    </section>
+    <section class="featured-section page-wrapper" aria-labelledby="featured-title">
+      <div class="section-heading section-heading--split"><div><p class="label">02 / Featured Project</p><h2 id="featured-title">A closer look.</h2></div><a class="text-link" href="projects.html">All projects <span aria-hidden="true">↗</span></a></div>
+      <a class="work-feature" href="projects/sea-turtle.html"><div class="work-feature__image"><img src="assets/sea-turtle/jetty-field-photo.jpg" alt="Coastal field site on Jekyll Island." loading="lazy" width="2048" height="1536" /><span class="work-feature__arrow" aria-hidden="true">↗</span></div><div class="work-feature__caption"><div><p class="label">Geospatial Modeling / 2024</p><h3>Sea Turtle Nesting Habitat</h3><p>Jekyll Island, Georgia</p></div><p>Multi-variable suitability modeling with LiDAR dune profiles, NDVI classification, and 13 years of tide-corrected shoreline data.</p></div></a>
+    </section>
   </main>
 
   <!-- Footer -->
