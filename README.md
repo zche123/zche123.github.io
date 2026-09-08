@@ -12,7 +12,6 @@ Personal portfolio website for Zhilin (Cassiel) Chen, Environmental Data Scienti
 zche123.github.io/
 ├── index.html              # Home page
 ├── projects.html           # Projects listing
-├── about.html              # About / CV page
 ├── contact.html            # Contact page
 ├── projects/
 │   ├── sea-turtle.html     # Sea Turtle Nesting Habitat project
@@ -84,7 +83,7 @@ GitHub Pages rebuilds automatically on every push to `main`.
 |---|---|
 | Colors / typography | `css/style.css` — `:root` variables at the top |
 | Navigation links | Each HTML file, `<nav>` section |
-| Bio text | `index.html`, `about.html` |
+| Bio text | `index.html` |
 | Projects | `projects.html` + individual files in `projects/` |
 | Contact email | `contact.html` (mailto link) and `js/main.js` |
 | Footer year | Each HTML file, `<footer>` |
