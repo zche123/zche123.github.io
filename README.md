@@ -16,7 +16,7 @@ zche123.github.io/
 ├── projects/
 │   ├── sea-turtle.html     # Sea Turtle Nesting Habitat project
 │   ├── climate-risk.html   # Physical Climate Risk Framework project
-│   ├── ecovadis.html       # Dematic sustainability systems case study
+│   ├── esgsystem.html       # Dematic sustainability systems case study
 │   └── barrier-islands.html # Barrier Island Shoreline Change project
 ├── css/
 │   └── style.css           # All styles (single stylesheet)
