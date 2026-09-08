@@ -1564,7 +1564,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Geographic field atlas: precise coastlines, quiet monochrome texture. */
 .field-map { padding: 1.5rem; background: #f7f8f5; border: 1px solid #d5d9d1; box-shadow: 0 12px 32px #17171708; }
-.field-map__heading { display: flex; justify-content: space-between; gap: 1rem; padding: .25rem .5rem 1.25rem; font-family: 'Courier New', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: #535b50; }
 .field-map .experience-map-panel__viewport { background: transparent; border: 0; }
 .field-map .experience-map-panel__frame { aspect-ratio: 1200 / 560; min-width: 900px; }
 .field-map .experience-map-panel__image { filter: none; min-height: 0; object-fit: fill; }
@@ -1583,6 +1582,5 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .field-map__note { color: #646d61; font-size: .75rem; padding: 1rem .5rem 0; border-top: 1px solid #dce0d8; }
 @media(max-width: 600px) {
  .field-map { padding: .75rem; }
- .field-map__heading { flex-direction: column; gap: .5rem; font-size: .75rem; }
 }
 .field-map .experience-map-panel__frame { width: max(calc(100% * var(--map-zoom, 1)), calc(900px * var(--map-zoom, 1))); }
