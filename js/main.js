@@ -125,12 +125,28 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
     title.textContent = button.dataset.title || '';
     subtitle.textContent = button.dataset.subtitle || '';
-    body.textContent = button.dataset.body || '';
+    body.replaceChildren();
+    (button.dataset.body || '').split(/\n\s*\n/).forEach(function (text) {
+      const paragraph = document.createElement('p');
+      text.split(/(\*\*.*?\*\*)/g).forEach(function (part) {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          const strong = document.createElement('strong');
+          strong.textContent = part.slice(2, -2);
+          paragraph.appendChild(strong);
+        } else {
+          paragraph.appendChild(document.createTextNode(part));
+        }
+      });
+      body.appendChild(paragraph);
+    });
     galleryImages = (button.dataset.images || button.dataset.image || '')
       .split('|')
       .map(function (item) { return item.trim(); })
       .filter(Boolean);
     galleryIndex = 0;
+    const imageWrap = modal.querySelector('.experience-modal__image-wrap');
+    if (imageWrap) imageWrap.hidden = galleryImages.length === 0;
+    modal.classList.toggle('experience-modal--text-only', galleryImages.length === 0);
     updateGallery();
 
     modal.hidden = false;
