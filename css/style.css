@@ -1561,3 +1561,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Geographic field atlas: precise coastlines, quiet monochrome texture. */
+.field-map { padding: 1.5rem; background: #f7f8f5; border: 1px solid #d5d9d1; box-shadow: 0 12px 32px #17171708; }
+.field-map__heading { display: flex; justify-content: space-between; gap: 1rem; padding: .25rem .5rem 1.25rem; font-family: 'Courier New', monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: #535b50; }
+.field-map .experience-map-panel__viewport { background: transparent; border: 0; }
+.field-map .experience-map-panel__frame { aspect-ratio: 1200 / 560; min-width: 900px; }
+.field-map .experience-map-panel__image { filter: none; min-height: 0; object-fit: fill; }
+.field-map .experience-pin { width: 18px; height: 18px; min-width: 0; min-height: 0; display: block; z-index: 1; }
+.field-map .experience-pin:hover, .field-map .experience-pin:focus-visible { z-index: 3; }
+.field-map .experience-pin__dot { position: absolute; width: 12px; height: 12px; left: 3px; top: 3px; background: #222820; border: 2px solid #f7f8f5; box-shadow: 0 0 0 1px #737d71; }
+.field-map .experience-pin__label { position: absolute; top: 27px; left: 50%; transform: translateX(-50%) rotate(-2deg); background: #fdfefa; border: 1px solid #626c5e; padding: .65rem .9rem; font-family: 'Courier New', monospace; font-size: .875rem; font-weight: 400; letter-spacing: .12em; box-shadow: 2px 3px 0 #1717170d; transition: background .2s, color .2s; }
+.field-map .experience-pin::before { content: ''; position: absolute; width: 1px; height: 23px; background: #737d71; top: 9px; left: 9px; }
+.field-map .experience-pin--nantong .experience-pin__label { top: -65px; left: -28px; transform: translateX(-100%) rotate(-2deg); }
+.field-map .experience-pin--nantong::before { top: auto; bottom: 9px; height: 63px; transform: rotate(-42deg); transform-origin: bottom; }
+.field-map .experience-pin--shanghai .experience-pin__label { top: 48px; left: 27px; transform: rotate(2deg); }
+.field-map .experience-pin--shanghai::before { height: 54px; transform: rotate(-32deg); transform-origin: top; }
+.field-map .experience-pin--cupertino .experience-pin__label { top: -59px; }
+.field-map .experience-pin--cupertino::before { top: auto; bottom: 9px; height: 30px; }
+.field-map .experience-pin:hover .experience-pin__label, .field-map .experience-pin:focus-visible .experience-pin__label { background: #242b22; color: white; }
+.field-map__note { color: #646d61; font-size: .75rem; padding: 1rem .5rem 0; border-top: 1px solid #dce0d8; }
+@media(max-width: 600px) {
+ .field-map { padding: .75rem; }
+ .field-map__heading { flex-direction: column; gap: .5rem; font-size: .75rem; }
+}
+.field-map .experience-map-panel__frame { width: max(calc(100% * var(--map-zoom, 1)), calc(900px * var(--map-zoom, 1))); }
